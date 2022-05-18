@@ -8,8 +8,6 @@ namespace StarterAssets
 	{
 		private PlayerInput _playerInput;
 		private StarterAssetsInputs _Input;//inputs for my new input system 
-		//[SerializeField] VirtualJoystick MovementHandler; // my virtual joystick for movement 
-
 		[SerializeField]
 		Transform playerInputSpace = default; // For Creating a local space of movement
 
@@ -75,33 +73,14 @@ namespace StarterAssets
 		void Update()
 		{
 			Move();
-			//-This if is for to end the game when the position of player is less then ground
-			/*  if (body.position.y < -2f)
-				{
-					FindObjectOfType<GameManager>().EndGame();
-				}
-			*/
-		
 		} 
 		private void Move()
 		{	
-			
 			// And we are getting the playerInput like Keyboard arrows keys and WASD
-			//playerInput.y = playerControl.Keyboard.MoveKeys.ReadValue<Vector2>();
 			if(_Input.move == Vector2.zero) 
 				desiredVelocity = Vector2.zero;
-			//playerInput.x = Input.GetAxis("Horizontal");
-			//playerInput.y = Input.GetAxis("Vertical");
-			//playerInput.x = Input.GetAxis("Mouse X");
-			//playerInput.y = Input.GetAxis("Mouse Y");
 			_Input.move = Vector3.ClampMagnitude(_Input.move, 1f);
 			
-			//This if for changing the input system to virtual joystick from Default input system
-			// if (MovementHandler.InputDirection != Vector3.zero)
-			// 	{
-			// 		_Input.move = MovementHandler.InputDirection;
-			// 	}		
-
 			if (playerInputSpace)
 			{
 				Vector3 forward = playerInputSpace.forward;

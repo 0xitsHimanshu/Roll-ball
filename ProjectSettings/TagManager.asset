@@ -7,6 +7,7 @@ TagManager:
   - CheckPoint
   - Coin
   - SpawnedPlayer
+  - VirtualJoystick
   layers:
   - Default
   - TransparentFX
